@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.31, for Win64 (x86_64)
 --
--- Host: 47.113.150.190    Database: teriteri
+-- Host: 47.113.150.190    Database: cilps
 -- ------------------------------------------------------
 -- Server version	5.7.43-log
 

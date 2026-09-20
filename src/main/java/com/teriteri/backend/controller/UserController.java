@@ -36,7 +36,7 @@ public class UserController {
             e.printStackTrace();
             CustomResponse customResponse = new CustomResponse();
             customResponse.setCode(500);
-            customResponse.setMessage("特丽丽被玩坏了");
+            customResponse.setMessage("服務器已斷開");
             return customResponse;
         }
     }

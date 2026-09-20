@@ -29,6 +29,9 @@ public class OssUtil {
     @Value("${oss.bucketUrl}")
     private String OSS_BUCKET_URL;
 
+    @Value("${oss.base-path}")
+    private String BASE_PATH;
+
     @Value("${directory.chunk}")
     private String CHUNK_DIRECTORY;   // 分片存储目录
 
@@ -50,7 +53,7 @@ public class OssUtil {
         String fileName = uuid + ext;
         // 完整路径名
         String date = new SimpleDateFormat("yyyy-MM-dd").format(new Date()).replace("-", "");
-        String filePathName = date + "/img/" + type + "/" + fileName;
+        String filePathName = BASE_PATH + date + "/img/" + type + "/" + fileName;
         try {
             ossClient.putObject(
                     OSS_BUCKET, // 仓库名
@@ -81,7 +84,7 @@ public class OssUtil {
         String fileName = uuid + ext;
         // 完整路径名
         String date = new SimpleDateFormat("yyyy-MM-dd").format(new Date()).replace("-", "");
-        String filePathName = date + "/video/" + fileName;
+        String filePathName = BASE_PATH + date + "/video/" + fileName;
         try {
             ossClient.putObject(
                     OSS_BUCKET, // 仓库名
@@ -110,7 +113,7 @@ public class OssUtil {
         String fileName = uuid + ".mp4";
         // 完整路径名
         String date = new SimpleDateFormat("yyyy-MM-dd").format(new Date()).replace("-", "");
-        String filePathName = date + "/video/" + fileName;
+        String filePathName = BASE_PATH + date + "/video/" + fileName;
         ObjectMetadata meta = new ObjectMetadata();
         // 设置内容类型为MP4视频
         meta.setContentType("video/mp4");
@@ -158,7 +161,7 @@ public class OssUtil {
      * @throws IOException
      */
     public boolean uploadChunk(@NonNull MultipartFile file, @NonNull String name) throws IOException {
-        String fileName = "chunk/" + name;  // 分片文件在OSS的存储路径名
+        String fileName = BASE_PATH + "chunk/" + name;  // 分片文件在OSS的存储路径名
         boolean success = false;
         try {
             // 判断文件是否存在

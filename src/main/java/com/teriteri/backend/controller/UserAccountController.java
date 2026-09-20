@@ -18,7 +18,7 @@ public class UserAccountController {
      * @param map 包含 username password confirmedPassword 的 map
      * @return CustomResponse对象
      */
-    // 前端使用axios传递的data是Content-Type: application/json，需要用@RequestBody获取参数
+    // 前端使用axios传递的data是Content-Type: application.yml/json，需要用@RequestBody获取参数
     @PostMapping("/user/account/register")
     public CustomResponse register(@RequestBody Map<String, String> map) {
         String username = map.get("username");
@@ -30,7 +30,7 @@ public class UserAccountController {
             e.printStackTrace();
             CustomResponse customResponse = new CustomResponse();
             customResponse.setCode(500);
-            customResponse.setMessage("特丽丽被玩坏了");
+            customResponse.setMessage("服務器已斷開");
             return customResponse;
         }
     }

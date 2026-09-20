@@ -133,13 +133,13 @@ public class VideoController {
         Map<String, Object> map = videoService.getVideoWithDataById(vid);
         if (map == null) {
             customResponse.setCode(404);
-            customResponse.setMessage("特丽丽没找到个视频QAQ");
+            customResponse.setMessage("视频失效");
             return customResponse;
         }
         Video video = (Video) map.get("video");
         if (video.getStatus() != 1) {
             customResponse.setCode(404);
-            customResponse.setMessage("特丽丽没找到个视频QAQ");
+            customResponse.setMessage("视频失效");
             return customResponse;
         }
         customResponse.setData(map);
